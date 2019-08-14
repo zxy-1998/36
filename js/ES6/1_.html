@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>11111</li>
+        <li>122221</li>
+        <li>1333331</li>
+    </ul>
+    <script>
+        // var aLi = document.getElementsByTagName("li");
+        // for(var i=0;i<aLi.length;i++){
+        //     aLi[i].onclick = function(){
+        //         setTimeout(()=>{
+        //             console.log(this)
+        //         },1000)
+        //     }
+
+        // }
+    // let  arr = [0,1];
+    // let [a,b]=arr;
+    // console.log(a,b)
+    // function fn([a,b,c=100]){
+    //     console.log(a,b,c)
+    // }
+    // fn([0,1])
+    // let obj ={
+    //     name:"zs",
+    //     age:20
+    // }
+    // let{name:x,age:y}=obj;
+    // console.log(x,y)
+    // let a =5;
+    // let b =6;
+    // // var arr =[a,b];
+    // function fn([a,b]){
+    //     // let[b,a]=arr;
+    //     console.log(a,b)
+    // }
+    // fn([6,5])
+    // var obj = {
+    //     name:"zs",
+    //     say :()=>{
+    //         setTimeout(()=>{
+    //             console.log(this);
+    //         },1000)
+    //     }
+    // }
+    // obj.say();
+    // let fn = (...rest)=>{
+    //     console.log(rest);
+    // }
+    // fn(1,2,3,4);
+    // var arr6 = [1,2,3,4,5] ;
+    // var arr7 = arr6.map(function(val,index){
+    //     return val*2
+    // })
+    // console.log(arr7)
+    // arr6.forEach(function(value,index){
+    //     console.log(value,index)
+    // })
+    // var arr8 = ["a","b","c","d","e"];
+    // for(index of arr8.keys()){
+    //     console.log(index)
+    // }
+    // let name = "zss";
+    // let age = 20;
+    // var obj = {
+    //     name,
+    //     age,
+    //     say(){
+    //         console.log("hah")
+    //     }
+    // }
+    // obj.say()
+    // var obj1 = {
+    //     name:"zs"
+    // }
+    // var obj2 = {
+    //     name:"lis",
+    //     age:20
+    // }
+    // Object.assign(obj1,obj2)
+    // console.log(obj1)
+    // function Coder(name,age){
+    //     Person.call(this,name,age)
+    // }
+    // var c1 = new Coder("lisi",18);
+    // var c2 = new Coder("wangwu",20);
+    // class Person{
+    //     constructor(name,age,sex){
+    //         this.name = name,
+    //         this.age = age,
+    //         this.sex = sex
+    //     }
+    //     say(){
+    //         console.log("hahah")
+    //     }
+    //     static play(){
+    //         console.log("wwwww");
+    //     }
+    // }
+    // var p1 = new Person("zs",20,"nan");
+    // p1.say();
+    // console.log(p1)
+
+
+
+    // class Coder extends Person{
+    //     constructor(name,age,sex,num){
+    //         super(name,age,sex);
+    //         this.head = num;
+    //     }
+    //     coding(){
+    //         console.log("hellow world!")
+    //     }
+    // }
+    // var c1 = new Coder("lx",18,"nan",5);
+    // c1.say();
+    // c1.coding();
+    // console.log(c1)
+    // Coder.play();
+    function fn(arr){
+        var result = [];
+        var obj = {
+        };
+        arr.forEach(function(val){
+            if(val in obj){
+                obj[val] += 1;
+            }else{
+                obj[val] = 1;
+                result.push(val);
+
+            }
+            
+        })
+        console.log(obj);
+        return  result;
+       
+          
+    }
+    console.log(fn([1,2,3,4,6,7,1,2,4,3,5]))
+    
+    
+
+
+
+    
+    </script>
+</body>
+</html>

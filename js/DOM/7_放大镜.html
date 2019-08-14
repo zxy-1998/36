@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #small-box,
+        #big-box {
+
+            width: 400px;
+            height: 400px;
+            float: left;
+            overflow: hidden;
+        }
+
+        #small-box {
+            position: relative;
+        }
+
+        #tubiao {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: rgba(255, 255, 255, 0.5);
+            display: none;
+
+        }
+
+        #big-box {
+            display: none;
+            position: relative;
+
+        }
+
+        #big-box-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+
+    <div id="big">
+        <div id="small-box">
+            <img src="../../img/1.jpg" alt="">
+            <span id="tubiao"> </span>
+        </div>
+        <div id="big-box">
+            <img id="big-box-img" src="../../img/2.jpg" alt="">
+        </div>
+
+
+
+    </div>
+    <script>
+        var oSmall = document.getElementById("small-box");
+        var oTu = document.getElementById("tubiao");
+        var oBig = document.getElementById("big-box");
+        var oBigimg = document.getElementById("big-box-img");
+        oSmall.onmouseover = function () {
+            oTu.style.display = "block";
+            oBig.style.display = "block";
+        }
+        oSmall.onmousemove = function (e) {
+            oTu.style.left = e.clientX - oTu.offsetWidth / 2 + "px"
+            oTu.style.top = e.clientY - oTu.offsetHeight / 2 + "px"
+            if (oTu.offsetLeft < "0") {
+                oTu.style.left = "0px";
+            }
+            if (oTu.offsetLeft > oSmall.offsetWidth - oTu.offsetWidth) {
+                oTu.style.left = oSmall.offsetWidth - oTu.offsetWidth + "px";
+            }
+            if (oTu.offsetTop < "0") {
+                oTu.style.top = "0px";
+            }
+            if (oTu.offsetTop > oSmall.offsetHeight - oTu.offsetHeight) {
+                oTu.style.top = oSmall.offsetHeight - oTu.offsetHeight + "px";
+            }
+            var smalldismaxX = oSmall.offsetWidth - oTu.offsetWidth;
+            var bigdismaxX = oBigimg.offsetWidth - oBig.offsetWidth;
+            oBigimg.style.left = -oTu.offsetLeft / smalldismaxX * bigdismaxX + "px";
+            var smalldismaxY = oSmall.offsetHeight - oTu.offsetHeight;
+            var bigdismaxY = oBigimg.offsetHeight - oBig.offsetHeight;
+            oBigimg.style.top = -oTu.offsetTop / smalldismaxY * bigdismaxY + "px";
+
+        }
+        oSmall.onmouseout = function(){
+            oTu.style.display= "none";
+            oBig.style.display="none";
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            width: 960px;
+            height: 100px;
+            margin: 50px auto;
+            text-align: center;
+            line-height: 100px;
+            background: #ccc;
+
+        }
+        #img-box{
+           
+            width: 960px;
+            height: 540px;
+            margin: 0 auto;
+            background: url(../../响应式设计/images/01.jpg) 0 0 no-repeat;
+            background-size:100%;
+            
+        }
+        #content{
+            width: 960px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        #left{
+            background: pink;
+            width: 630px;
+            height: 300px;
+            float: left;
+            display: table;
+        }
+        #left p{
+            display: table-cell;
+            vertical-align: middle;
+
+        }
+        #right{
+            background: green;
+            width: 300px;
+            height: 300px;
+            float: right;
+        }
+        
+        @media screen and (max-width:960px){
+            h1{
+                width: 100%;
+            }
+            #img-box{
+                width: 100%;
+                background-image: url(../../响应式设计/images/01_s_2x.jpg);
+                height: 0px;
+                padding-top: 56%;
+               
+            }
+            #content{
+                width: 100%;
+            }
+            #left{
+                width: 66%
+            }
+            #right{
+                width: 31%;
+            }
+        }
+        @media screen and (max-width:480px){
+            #img-box{
+                background-image: url(../../响应式设计/images/01_s.jpg);
+            }
+            #left{
+                width: 100%;
+            }
+            #right{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>页面</h1>
+    <h1>标题</h1>
+    <div id="img-box">
+        <!-- <img id="fir" src="images/01.jpg" alt="">
+        <img id="sec" src="images/01_s_2x.jpg" alt="">
+        <img id="thi" src="images/01_s.jpg" alt=""> -->
+    </div>
+    
+        <div id ="content">
+
+            <div id="left">
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat.Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.</p>
+            </div>
+            <div id="right">
+
+            
+        </div>
+
+    </div>
+    <h1>标题</h1>
+</body>
+</html>

@@ -1,0 +1,110 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #big {
+            margin: 150px;
+        }
+
+        #btn {
+            overflow: hidden;
+
+        }
+
+        #btn li.btu {
+            background-color: #6D84B4;
+            color: #fff;
+        }
+
+        #btn li {
+            float: left;
+            list-style: none;
+            width: 50px;
+            height: 30px;
+            background: blue;
+            margin-right: 10px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #666;
+
+        }
+
+        #content {
+            height: 150px;
+            width: 300px;
+            border: 1px solid #666;
+
+        }
+
+        #content div {
+            display: none;
+        }
+
+        #content .thing {
+            display: block;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="big">
+           
+        
+        <ul id="btn">
+            <li class="btu">实事</li>
+            <li>体育</li>
+            <li>娱乐</li>
+        </ul>
+        <div id="content">
+                <div class="thing">实事</div>
+                <div>体育</div>
+                <div>娱乐</div>
+            </div>
+
+
+
+
+    </div>
+    <script>
+
+        var oUl = document.getElementById("btn");
+        var aLi = oUl.getElementsByTagName("li");
+        var oCo = document.getElementById("content");
+        var aTh = oCo.getElementsByTagName("div");
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].index = i;
+            aLi[i].onclick = function () {
+                for (var j = 0; j < aLi.length; j++) {
+                    aLi[j].className = "";
+                    aTh[j].className = "";
+
+                }
+                this.className = "btu";
+                aTh[this.index].className = "thing"
+            }
+        }
+      
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+
+        }
+
+        #big {
+            width: 200px;
+            border: 1px solid #000;
+
+        }
+
+        h2 {
+            background-color: #000;
+            color: antiquewhite;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        #big li ul {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+  <ul id="big">
+        <li>
+            <h2>管理区</h2>
+            <ul>
+                <li>156</li>
+                <li>852</li>
+                <li>159</li>
+            </ul>
+        </li>
+        <li>
+            <h2>交流区</h2>
+            <ul>
+                <li>852</li>
+                <li>651</li>
+                <li>116</li>
+            </ul>
+        </li>
+    </ul>
+
+
+
+
+    <script>
+        var aH2 = document.getElementsByTagName("h2");
+        for (var i = 0; i < aH2.length; i++) {
+            aH2[i].onclick = function () {
+                var oUl = next(this);
+                if (oUl.style.display == "none" || oUl.style.display == "") {
+                    oUl.style.display = "block";
+                }else {
+                    oUl.style.display = "none";
+                }
+            }
+        }
+        // function Person(name,age,weight){
+        //     this.name = name;
+        //     this.age = age;
+        //     this.weight = weight;
+        // }
+        // Person.prototype.play = function(){
+        //     console.log("cjcicjci")
+        // }
+        // var p1 = new Person("zs",20,98);
+        // var p2 = new Person("lisi",25,50);
+        // var p3 = new Person("ww",18,48);
+        // console.log(p2.age)
+        // p3.play();
+
+
+        function next(elem) {
+            do {
+                elem = elem.nextSibling;
+            } while (elem && elem.nodeType != 1) {
+                return elem;
+            }
+        }
+    </script>
+</body>
+
+</html>

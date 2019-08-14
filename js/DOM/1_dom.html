@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">hahahah</div>
+    <ul>
+        <li class="li1">1111</li> 
+        <li>2222</li>
+        <li class="li1">3333</li>
+        <li>4444</li>
+        <input type="radio" name="sex">男
+        <input type="radio" name="sex">女
+
+    </ul>
+    <script>
+        var oDiv=document.getElementById("div1");
+        oDiv.style.background="red";
+        var aLi=document.getElementsByClassName("li1");
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].style.background="green";
+        }
+        var aLi= document.getElementsByTagName("li");
+        for(i=0;i<aLi.length;i++){
+            aLi[i].style.fontSize="25px";
+        }
+       
+    
+    </script>
+</body>
+</html>

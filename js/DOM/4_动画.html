@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #big {
+            position: relative;
+            margin: 300px;
+            width: 750px;
+            height: 291px;
+            overflow: hidden;
+        }
+
+        #title {
+            height: 30px;
+            position: absolute;
+            left: 540px;
+            bottom: 15px;
+        }
+
+        #content {
+            width: 4500px;
+            height: 291px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            /* transition: left 1s linear; */
+        }
+
+        #content div {
+            float: left;
+        }
+
+        #title li,#fuhao li {
+            float: left;
+            list-style: none;
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            background: #666;
+            margin: 5px;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        #title .btn {
+            color: #ffffff;
+            background: #ff0036;
+        }
+
+        #fuhao {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="big">
+        <div id="content">
+            <div class="tupian"><img src="1.jpg" alt=""></div>
+            <div><img src="2.jpg" alt=""></div>
+            <div><img src="3.jpg" alt=""></div>
+            <div><img src="4.jpg" alt=""></div>
+            <div><img src="5.jpg" alt=""></div>
+            <div><img src="1.jpg" alt=""></div>
+        </div>
+
+        <ul id="title">
+            <li class="btn">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+
+
+        </ul>
+        <ul id="fuhao">
+            <li id="pre">&lt</li>
+            <li id="next">&gt</li>
+        </ul>
+        <script src="jslib.js"></script>
+        <script>
+            var oUl = document.getElementById("title");
+            var aLi = oUl.getElementsByTagName("li");
+            var oCo = document.getElementById("content");
+            var aTh = oCo.getElementsByTagName("div");
+            var oNext = document.getElementById("next");
+            var oPre = document.getElementById("pre");
+            var oBig = document.getElementById("big");
+            var now = 0;
+            // for (var i = 0; i < aLi.length; i++) {
+            //     aLi[i].onclick = function () {
+            //         aLi[index] = i;
+            //         change(this.index);
+            //         now=this.index;
+
+            //     }
+            // }
+            oNext.onclick=function(){
+                now++;
+                if(now==aTh.length){
+                    oCo.style.left="0px";
+                    now=1;
+
+                }
+                change(now);
+            }
+            
+            oPre.onclick=function(){
+                now--;
+                if(now==-1){
+                    oCo.style.right="0px";
+                    now=aTh.length-2;
+                }
+                change(now);
+
+            }
+
+            function change(index) {
+
+                for (var i = 0; i < aLi.length; i++) {
+                    aLi[i].className = "";
+
+                }
+                aLi[index==5?0:index].className = "btn";
+                animate(oCo,{
+                left:-750*index
+            })
+            }
+           
+
+
+        </script>
+</body>
+
+</html>
