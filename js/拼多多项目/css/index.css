@@ -1,0 +1,123 @@
+
+.header{
+    height: 0.48rem;
+    display: flex;
+    padding: 0.2rem;
+}
+.search{
+    width: 6.66rem;
+    height: 0.5rem;
+    border-radius: 0.25rem;
+    border:none;
+    outline: none;
+    text-indent: 0.61rem;
+    background: #EEEEEE url(../images/search.png) 0.2rem 0.1rem no-repeat;
+    /* 设置背景图片的尺寸 */
+    background-size:0.3rem 0.3rem;
+}
+.message{
+    width: 0.28rem;
+    height: 0.3rem;
+}
+.banner,.banner img{
+    width: 7.5rem;
+    height: 3.9rem;
+    display: block;
+}
+.menu{
+    display: flex;
+    padding: 0.2rem 0.45rem;
+    justify-content: space-between;
+}
+.menu li{
+    width: 1.2rem;
+    font-size: 0.2rem;
+    text-align: center;
+}
+.menu li img{
+    width: 0.8rem;
+    height: 0.8rem;
+}
+.buy{
+    display: flex;
+    justify-content: space-between;
+}
+.top{
+    display: flex;
+}
+#li1{
+    font-size: 0.4rem;
+}
+#li2{
+    font-size: 0.2rem;
+}
+.buy .top img{
+    width: 0.8rem;
+    height: 0.8rem;
+}
+.buy .bot ul p{
+    font-size: 0.3rem;
+}
+.buy .bot ul span{
+    font-size: 0.3rem;
+    color: #ff0000; 
+} 
+.buy. bot ul img{
+    width: 2rem;
+    height: 2rem;
+}
+.like-title{
+    display: flex;
+}
+.like-title img{
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-left: 0.5rem;
+}
+.like-title-txt{
+    flex: 1;
+    margin-left: 0.3rem;
+}
+.like-title-txt h1{
+    font-size: 0.28rem;
+    color: #333333;
+}
+.like-title-txt p{
+    font-size: 0.18rem;
+    color:#999;
+}
+.fuhao{
+    font-size: 0.5rem;
+}
+.like-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.like-content ul li{
+    font-size: 0.28rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height:0.3rem;0
+    height: 0.3rem;
+}
+.like-content ul{
+    width: 3.5rem;
+    margin: 0.1rem;
+}
+.like-content ul img{
+    width: 3.5rem;
+    height: 3.5rem;
+}
+.like-content ul p{
+    font-size: 0.3rem;
+    color: #ff0000;
+    margin-top: 0.15rem;
+    
+}
+
+
+
+
+

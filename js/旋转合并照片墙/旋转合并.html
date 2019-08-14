@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html, body {
+        height: 100%;
+    }
+
+    #container {
+        background: url(img/bg.jpg) 0 0 repeat;
+        position: relative;
+        height: 100%;
+    }
+
+    .box {
+        width: 125px;
+        height: 125px;
+        border: 5px solid #fff;
+        position: absolute;
+        left: -135px;
+        top: -135px;
+        transition: all 2s ease;
+
+    }
+
+    .box span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: url(img/1.jpg) 0 0 no-repeat;
+        opacity: 0;
+    }
+
+    #next {
+        position: absolute;
+        width: 50px;
+        height: 100px;
+        background: gray;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: none;
+    }
+
+    #prev {
+        position: absolute;
+        left: 0;
+        width: 50px;
+        height: 100px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: gray;
+        display: none;
+    }
+</style>
+
+<body>
+    <div id="container">
+        <div id="prev"></div>
+        <div id="next"></div>
+    </div>
+    <script>
+        var oCon = document.getElementById("container");
+        var count = 0;
+        for (var i = 0; i < 24; i++) {
+            var oImg = new Image();
+            oImg.onload = function () {
+                count++;
+                if (count == 48) {
+                    loadsuccess();
+                }
+            }
+            oImg.src = "img/thumbs/" + (i + 1) + ".jpg";
+
+
+        }
+        for (var i = 0; i < 24; i++) {
+            var oImg = new Image();
+            oImg.onload = function () {
+                count++;
+                if (count == 48) {
+                    loadsuccess();
+                }
+            }
+            oImg.src = "img/" + (i + 1) + ".jpg";
+
+        }
+
+        function loadsuccess() {
+            var idx = 0;
+            for (var i = 0; i < 4; i++) {
+                for (var j = 0; j < 6; j++) {
+                    var oDiv = document.createElement("div");
+
+                    oDiv.style.background = "url(img/thumbs/" + (idx + 1) + ".jpg)";
+                    oDiv.className = "box";
+                    oDiv.row = i;
+                    oDiv.col = j;
+                    oDiv.index = idx;
+                    idx++;
+                    oDiv.onclick = fn;
+                    oDiv.innerHTML = "<span></span>"
+                    oCon.appendChild(oDiv);
+                }
+            }
+            var aBox = document.getElementsByClassName("box");
+            var boxwidth = aBox[0].offsetWidth;
+            var boxHeight = aBox[0].offsetHeight;
+            disX = (oCon.offsetWidth - boxwidth * 6) / 7;
+            disY = (oCon.offsetHeight - boxHeight * 4) / 5;
+            for (var i = 0; i < aBox.length; i++) {
+                aBox[i].style.transitionDelay = (aBox.length - i) * 100 + "ms";
+                aBox[i].style.transform = "rotate(" + (Math.random() * 40 - 20) + "deg)";
+                aBox[i].style.left = (aBox[i].col + 1) * disX + (aBox[i].col) * boxwidth + "px";
+                aBox[i].style.top = (aBox[i].row + 1) * disY + (aBox[i].row) * boxHeight + "px";
+
+            }
+            var bigWidth = (oCon.offsetWidth - 6 * 127) / 2;
+            var bigHeight = (oCon.offsetHeight - 4 * 127) / 2;
+            var flag = true;
+            var oNext = document.getElementById("next");
+            var oPrev = document.getElementById("prev");
+            function fn() {
+                if (flag) {
+
+                    for (var i = 0; i < aBox.length; i++) {
+
+                        aBox[i].style.left = (aBox[i].col) * 127 + bigWidth + "px";
+                        aBox[i].style.top = (aBox[i].row) * 127 + bigHeight + "px";
+                        aBox[i].style.transitionDelay = "0ms";
+                        aBox[i].style.transform = "rotate(0deg)";
+                        aBox[i].style.borderWidth = "1px";
+
+                        var oSpan = aBox[i].getElementsByTagName("span")[0];
+                        oSpan.style.opacity = 1;
+                        var x = -aBox[i].col * 125;
+                        var y = -aBox[i].row * 125;
+                        oSpan.style.background = "url(img/" + (this.index + 1) + ".jpg) " + x + "px " + y + "px " + "no-repeat";
+                    }
+                    oNext.style.display = "block"
+                    oPrev.style.display = "block"
+                    now = this.index;
+                } else {
+                    for (var i = 0; i < aBox.length; i++) {
+                        aBox[i].style.left = (aBox[i].col + 1) * disX + (aBox[i].col) * boxwidth + "px";
+                        aBox[i].style.top = (aBox[i].row + 1) * disY + (aBox[i].row) * boxHeight + "px";
+                        aBox[i].style.transform = "rotate(" + (Math.random() * 40 - 20) + "deg)";
+                        var oSpan = aBox[i].getElementsByTagName("span")[0];
+                        oSpan.style.opacity = 0;
+                    }
+                    oNext.style.display = "none";
+                    oPrev.style.display = "none";
+                }
+
+                flag = !flag;
+            }
+            var aSpan = oCon.getElementsByTagName("span");
+            oNext.onclick = function () {
+                now++;
+                if (now == 24) {
+                    now = 0;
+                }
+                for (var i = 0; i < aSpan.length; i++) {
+                    aSpan[i].style.backgroundImage = "url(img/" + (now + 1) + ".jpg)";
+                    aSpan[i].style.transitionDelay = Math.random() * 500 + "ms"
+                }
+            }
+            oPrev.onclick = function () {
+                now--;
+                if (now == -1) {
+                    now = 23;
+                }
+                for (var i = 0; i < aSpan.length; i++) {
+                    aSpan[i].style.backgroundImage = "url(img/" + (now + 1) + ".jpg)";
+                    aSpan[i].style.transitionDelay = Math.random() * 500 + "ms";
+                }
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

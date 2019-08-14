@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, ">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #bot{
+            background: #ff0036;
+           
+            margin: 0 auto;
+            width: 960px;
+            overflow: hidden;
+         
+            
+        }
+        #bot #left{
+            
+            float: left;
+            width: 630px;
+            height: 300px;
+            background: pink;
+            display: table;
+            
+        }
+        #bot #right{
+            float: right;
+            width: 300px;
+            height: 300px;
+            background: green;
+        }
+        h1{
+            background: #ccc;
+            line-height: 100px;
+            text-align: center;
+            height: 100px;
+            margin: 20 auto;
+            
+            width: 960px;
+
+        }
+        
+        #img-box{
+           
+            background: url(images/01.jpg) 0 0 no-repeat;
+            background-size: 100%;
+            height: 540px;
+            margin: 0 auto;
+            width: 960px;
+
+        }
+        p{
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+           
+        }
+        @media screen and (max-width:960px){
+            h1{
+                width: 100%;
+            }
+
+            #img-box{
+                background-image:url(images/01_s_2x.jpg);
+                width: 100%;
+                height: 0px;
+                padding-top: 56%;
+                }
+            #bot{
+                width: 100%;
+            }
+            
+            #left{
+                width: 66%;
+            }
+            #right{
+                width: 31%;
+            }
+            
+        }
+        @media(max-width:480px){
+            #img-box{
+                background-image: url(images/01_s.jpg);
+                margin: 0 auto;
+                
+                background-size: 100%;
+            }
+            #left{
+                width: 100%;
+            }
+            #right{
+                width: 100%;
+            }
+
+
+
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <h1>标题</h1>
+    <h1>标题</h1>
+    <div id="img-box">
+        <!-- <img id="fir" src="images/01.jpg" alt="">
+        <img id="sec" src="images/01_s_2x.jpg" alt="">
+        <img id="thi" src="images/01_s.jpg" alt=""> -->
+    </div>
+    <div>
+        <div id ="bot">
+
+            <div id="left">
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat.Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.</p>
+            </div>
+            <div id="right">
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
