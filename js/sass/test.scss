@@ -1,0 +1,52 @@
+
+body{
+    background: red;
+    color:rgb(19, 29, 19);
+    width:800px;
+    @mixin a($w,$h,$b){
+        width: $w;
+        height: $h;
+        background: $b;
+    }
+    @mixin b {
+        width: 500px;
+        height: 500px;
+        background: #ff0;
+       
+    }
+    
+    @mixin arrow($size:5px,$color:#ff0) {
+        width: 0;
+        height: 0;
+        border: $size solid transparent;
+        border-color: $color;
+    }
+    #app{
+        color: pink;
+        h2{
+            
+            @include a(300px,200px,red)
+        }
+        p{
+            height: 300px;
+            @include b;
+        }
+        h3{
+            @extend p;//wdudwubdbdwwdbu
+
+
+        }
+        h5{
+            @include arrow(10px,#ff00ff);
+           
+        }
+        
+    }
+}
+
+    $list:success error warn;
+    @each  $n  in list {
+        .#{$n}{
+            background: url(#{$n}.jpg);
+        }
+    }

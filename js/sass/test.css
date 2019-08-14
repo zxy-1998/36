@@ -1,0 +1,33 @@
+body {
+  background: red;
+  color: #131d13;
+  width: 800px;
+}
+
+body #app {
+  color: pink;
+}
+
+body #app h2 {
+  width: 300px;
+  height: 200px;
+  background: red;
+}
+
+body #app p, body #app h3 {
+  height: 300px;
+  width: 500px;
+  height: 500px;
+  background: #ff0;
+}
+
+body #app h5 {
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-color: #ff00ff;
+}
+
+.list {
+  background: url(list.jpg);
+}

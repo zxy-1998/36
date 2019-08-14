@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .dialog {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #cccccc;
+        }
+        .dialog-close{
+            float: right;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="loginShow = true">登陆</button> 
+        <button @click="regShow = true">注册</button>
+        <my-component title="登陆" v-show="loginShow" @close="fn">
+            用户名<input type="text">
+            </br> 
+            密码 <input type="password">
+            </br>
+            <button>登陆</button>
+        </my-component>
+        <my-component title="注册" v-show="regShow" @close="fn">
+                用户名<input type="text">
+                </br>
+                密码 <input type="password">
+                </br>
+                请再输入密码 <input type="password">
+            </br>
+                <button>注册</button>
+            </my-component>
+
+    </div>
+    <template id="temp">
+        <div class="dialog" v-show="isShow">
+            <div class="dialog-title">
+                <span>{{title}}</span>
+                <span class="dialog-close" @click =' $emit("close","reg")'>[x]</span>
+            </div>
+            <div class="dialog-content">
+               <slot></slot>
+            </div>
+        </div>
+    </template>
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+          
+            el:"#app",
+            data:{
+                regShow:false,
+                loginShow:false,
+            },
+            methods:{
+                fn(msg){
+                    if(msg == "reg"){
+                        this.regShow = false;
+                        this.loginShow = false;
+                    }
+                }
+            },
+            
+            components:{
+                "myComponent":{
+                    template:"#temp",
+                    props:["title"],
+                    data(){
+                        return{
+                            isShow:true
+                        }
+                    },
+                    methods:{
+                        close(){
+                            this.isShow = false;
+ 
+
+
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+
+</html>
