@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"> </div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel">
+        class Sheng extends React.Component{
+            constructor(){
+                super();
+                this.state = {
+                    rest:100,
+                    numA:120,
+                    numB:80
+                }
+                this.changeNum = this.changeNum.bind(this)
+            }
+            changeNum(name,num){
+                this.setState({
+                    ["num"+name]:this.state["num"+name]+num*1,
+                    rest:this.state.rest-num*1
+                })
+            }
+            render(){
+                return (
+                    <div>
+                        <h2>剩余士兵为{this.state.rest}</h2>
+                        <Jiang  name="A" num={this.state.numA} changeNum={this.changeNum}></Jiang>
+                        <Jiang name="B" num={this.state.numB} changeNum={this.changeNum}></Jiang>
+
+                       
+                    </div>
+                )
+            }
+            
+        }
+        class Jiang extends React.Component{
+            constructor(){
+                super();
+            }  
+            render(){
+                return (
+                    <div>
+                        <h2>将军{this.props.name}手下有{this.props.num}个士兵</h2>
+                            
+                            <input type="number" ref={(input)=>
+                                this.MyInput = input
+                             }/>
+                            
+                            <button onClick ={()=>{
+                                this.props.changeNum(this.props.name,this.MyInput.value);
+                                }}>调兵</button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Sheng></Sheng>
+            ,document.getElementById("root")
+        )
+    </script>
+</body>
+
+</html>
